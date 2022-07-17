@@ -1,0 +1,143 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V4</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/contact-form/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/contact-form/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'font/contact-form/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/contact-form/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/contact-form/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/contact-form/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/contact-form/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/contact-form/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/contact-form/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/contact-form/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="pred_price" method="post">
+				{% csrf_token %}
+				<span class="contact100-form-title">
+					House PRICE PREDICTION
+				</span>
+
+				
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">AREA TYPE</span>
+				
+				<!-- 'Super built-up Area', 'Plot Area', 'Built-up Area', 'Carpet Area'
+				 -->
+				
+					<div>
+						<select class="selection-2" name="area_type">
+							<option >Select Area Type</option>
+							<option value="0">0 Super built-up Area</option>
+							<option value="1">1 Plot Area</option>
+							<option value="2">2 Built-up Area</option>
+							<option value="3">3 Carpet Area</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate = "value is required">
+					<span class="label-input100">No of BHK</span>
+					<input type="text" class="input100" name="size" placeholder="enter the value ">
+					<span class="focus-input100"></span> 
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "value is required">
+					<span class="label-input100">Total_sqft</span>
+					<input type="text" class="input100" name="new_total_sqft" placeholder="enter the value">
+					<span class="focus-input100"></span> 
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "value is required">
+					<span class="label-input100">Bathroom</span>
+					<input type="text" class="input100" name="bath" placeholder="Your ">
+					<span class="focus-input100"></span> 
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "value is required">
+					<span class="label-input100">Balcony</span>
+					<input type="text" class="input100" name="balcony" placeholder="enter the value">
+					<span class="focus-input100"></span> 
+				</div>
+
+				{%if scoreval %}
+
+                  <h3>Predicted price of house: {{scoreval}}</h3>
+
+                {% endif   %}
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/contact-form/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/contact-form/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/contact-form/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/contact-form/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/contact-form/select2/select2.min.js' %}"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/contact-form/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor/contact-form/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/contact-form/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/contact-form/main.js' %}"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="{% static 'https://www.googletagmanager.com/gtag/js?id=UA-23581568-13' %}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
